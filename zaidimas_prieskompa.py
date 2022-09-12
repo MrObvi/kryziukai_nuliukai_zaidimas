@@ -148,7 +148,7 @@ def zaidimas_pr_kp():
             break
         else:
             print("Netinkamas pasirinkimas, bandyk dar karta")
-            pasirinkimas = input("Iraskykite skaiciu kur norite uzdeti X")
+
             continue
 
         if tikrinam_ar_laimejo():
@@ -406,7 +406,6 @@ def zaidimas_pr_kp():
                         print("Netinkamas pasirinkiams, bandyk dar karta")
                         continue
             break
-
 
 
 
