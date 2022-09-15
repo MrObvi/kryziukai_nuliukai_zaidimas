@@ -2,11 +2,11 @@ import random
 import sys
 import time
 
+
 def zaidimas_pr_kp():
     print("Zaidimas Kryziukai ir Nuliukai 3000 Pries PC, noredami isjungti program spauskite Enter")
 
-    kriziukai = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+    kriziukai = []
 
     def spausdinam():
         return print(f"""
@@ -17,7 +17,7 @@ def zaidimas_pr_kp():
 
     def tikrinam_ar_laimejo():
 
-        #eilutes X
+        # eilutes X
 
         if kriziukai[7] == "X" and kriziukai[8] == "X" and kriziukai[9] == "X":
             print("X Laimejo")
@@ -28,7 +28,7 @@ def zaidimas_pr_kp():
         if kriziukai[1] == "X" and kriziukai[2] == "X" and kriziukai[3] == "X":
             print("X Laimejo")
             return True
-        #stulpeliai X
+        # stulpeliai X
         if kriziukai[7] == "X" and kriziukai[4] == "X" and kriziukai[1] == "X":
             print("X Laimejo")
             return True
@@ -38,7 +38,7 @@ def zaidimas_pr_kp():
         if kriziukai[9] == "X" and kriziukai[6] == "X" and kriziukai[3] == "X":
             print("X Laimejo")
             return True
-        #istrizaines X
+        # istrizaines X
         if kriziukai[7] == "X" and kriziukai[5] == "X" and kriziukai[3] == "X":
             print("X Laimejo")
             return True
@@ -74,23 +74,40 @@ def zaidimas_pr_kp():
             print("O Laimejo")
             return True
         else:
-            sk_x=0
-            sk_0=0
+            sk_x = 0
+            sk_0 = 0
             for elemtas in kriziukai:
                 if elemtas == "X":
-                    sk_x+=1
+                    sk_x += 1
                 if elemtas == "O":
-                    sk_0+=1
+                    sk_0 += 1
 
-                if sk_0+sk_x == 9:
-                    print("Lygiosios, programa isjungiama po 7 sekundziu")
-                    time.sleep(3)
-                    print("Programa isjungiama po 4 sekundziu")
-                    time.sleep(4)
-                    sys.exit("Zaidimas baigtas")
+                if sk_0 + sk_x == 9:
+                    print("Lygiosios")
+                    toliau = input("Ar norite zaisti dar karta 1 - Taip 2- Ne")
+                    if toliau == "1":
+                        print("Zaidimas paleidziamas isnaujo, noredami isjungti zaidima eigoje spauskite Enter")
+                        kriziukai.clear()
+                        return kriziukai
+                    else:
+                        print("Programa isjungiama po 4 sekundziu")
+                        time.sleep(4)
+                        sys.exit("Zaidimas baigtas")
+
+
+
+
+
+
+                    # time.sleep(3)
+
 
 
     while True:
+
+        if kriziukai==[]:
+            kriziukai = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
         if tikrinam_ar_laimejo():
             spausdinam()
@@ -109,38 +126,38 @@ def zaidimas_pr_kp():
         pasirinkimas = input("Iraskykite skaiciu kur norite uzdeti X")
 
         if pasirinkimas == '7' and kriziukai[7] != "X" and kriziukai[7] != "O":
-            kriziukai[7]="X"
+            kriziukai[7] = "X"
 
         elif pasirinkimas == '8' and kriziukai[8] != "X" and kriziukai[8] != "O":
-            kriziukai[8]="X"
+            kriziukai[8] = "X"
 
 
         elif pasirinkimas == '9' and kriziukai[9] != "X" and kriziukai[9] != "O":
-            kriziukai[9]="X"
+            kriziukai[9] = "X"
 
 
         elif pasirinkimas == '4' and kriziukai[4] != "X" and kriziukai[4] != "O":
-            kriziukai[4]="X"
+            kriziukai[4] = "X"
 
 
         elif pasirinkimas == '5' and kriziukai[5] != "X" and kriziukai[5] != "O":
-            kriziukai[5]="X"
+            kriziukai[5] = "X"
 
 
         elif pasirinkimas == '6' and kriziukai[6] != "X" and kriziukai[6] != "O":
-            kriziukai[6]="X"
+            kriziukai[6] = "X"
 
 
         elif pasirinkimas == '1' and kriziukai[1] != "X" and kriziukai[1] != "O":
-            kriziukai[1]="X"
+            kriziukai[1] = "X"
 
 
         elif pasirinkimas == '2' and kriziukai[2] != "X" and kriziukai[2] != "O":
-            kriziukai[2]="X"
+            kriziukai[2] = "X"
 
 
         elif pasirinkimas == '3' and kriziukai[3] != "X" and kriziukai[3] != "O":
-            kriziukai[3]="X"
+            kriziukai[3] = "X"
 
 
         elif pasirinkimas == "":
@@ -156,8 +173,8 @@ def zaidimas_pr_kp():
             kriziukai.clear()
             kriziukai = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-            toliau= input("Ar norite zaisti dar karta 1 - Taip 2- Ne")
-            if toliau=="1":
+            toliau = input("Ar norite zaisti dar karta 1 - Taip 2- Ne")
+            if toliau == "1":
                 print("Zaidimas paleidziamas isnaujo, noredami isjungti zaidima eigoje spauskite Enter")
                 continue
             else:
@@ -165,6 +182,9 @@ def zaidimas_pr_kp():
                 break
 
         while True:
+            if kriziukai == []:
+                break
+
             if tikrinam_ar_laimejo():
                 spausdinam()
                 kriziukai.clear()
@@ -332,7 +352,7 @@ def zaidimas_pr_kp():
             elif kriziukai[9] == "X" and kriziukai[3] == "X" and kriziukai[6] != "O":
                 kriziukai[6] = "O"
 
-           #istrizainiu logika pagal X
+            # istrizainiu logika pagal X
 
             elif kriziukai[7] == "X" and kriziukai[5] == "X" and kriziukai[3] != "O":
                 kriziukai[3] = "O"
@@ -354,7 +374,7 @@ def zaidimas_pr_kp():
                 kriziukai[5] = "O"
 
             else:
-                #standartiniai eijimai
+                # standartiniai eijimai
                 if pasirinkimas_O == 7 and kriziukai[7] != "X" and kriziukai[7] != "O":
                     kriziukai[7] = "O"
                     break
@@ -407,7 +427,5 @@ def zaidimas_pr_kp():
                         continue
             break
 
-
-
-
-
+# Jei norit paleisti pycharm programoje atkomentuokit funkcija apacioje
+# zaidimas_pr_kp()

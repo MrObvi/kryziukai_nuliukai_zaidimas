@@ -82,14 +82,27 @@ def zaidimas():
                     sk_0+=1
 
                 if sk_0+sk_x == 9:
-                    print("Lygiosios, programa isjungiama po 7 sekundziu")
-                    time.sleep(3)
-                    print("Programa isjungiama po 4 sekundziu")
-                    time.sleep(4)
-                    sys.exit("Zaidimas baigtas")
+                    print("Lygiosios")
+                    toliau = input("Ar norite zaisti dar karta 1 - Taip 2- Ne")
+                    if toliau == "1":
+                        print("Zaidimas paleidziamas isnaujo, noredami isjungti zaidima eigoje spauskite Enter")
+                        kriziukai.clear()
+                        return kriziukai
+                    else:
+                        print("Programa isjungiama po 4 sekundziu")
+                        time.sleep(4)
+                        sys.exit("Zaidimas baigtas")
+                    # print("Lygiosios, programa isjungiama po 7 sekundziu")
+                    # time.sleep(3)
+                    # print("Programa isjungiama po 4 sekundziu")
+                    # time.sleep(4)
+                    # sys.exit("Zaidimas baigtas")
 
 
     while True:
+        if kriziukai==[]:
+            kriziukai = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
         if tikrinam_ar_laimejo():
             spausdinam()
             kriziukai.clear()
@@ -164,6 +177,10 @@ def zaidimas():
 
 
         while True:
+
+            if kriziukai == []:
+                break
+
             spausdinam()
             pasirinkimas_O = input("Iraskykite skaiciu kur norite uzdeti O")
 
@@ -215,8 +232,8 @@ def zaidimas():
                 print("Netinkamas pasirinkiams, bandyk dar karta")
                 continue
 
-
-
+# Jei norit paleisti pycharm programoje atkomentuokit funkcija apacioje
+# zaidimas()
 
 
 
